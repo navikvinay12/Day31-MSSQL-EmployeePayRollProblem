@@ -25,4 +25,22 @@ alter table EmployeePayRoll add Gender char (1);
 update EmployeePayRoll set Gender='M';
 --some more insertions--
 insert into EmployeePayRoll values('kalpana',43535.32,'2012-06-01','F'),('Kaveri',23423.43,'2022-01-20','F');
+----UC 7 Find sum ,average, min, max and number of male and female count -----
+select sum(salary) from EmployeePayRoll 
+select sum(salary) as Totalsalary from EmployeePayRoll 
+select sum(salary) from EmployeePayRoll group by Gender;
+select sum(salary) as Totalsalary,Gender from EmployeePayRoll group by Gender;
+select max(salary) as Totalsalary,Gender from EmployeePayRoll group by Gender;
+select * from EmployeePayRoll where salary=(select Max(salary) as totalsalary from employeepayroll where gender='F' )
+select * from EmployeePayRoll where salary=(select Max(salary) as totalsalary from employeepayroll where gender='M' )
+select * from EmployeePayRoll where salary in (select Max(salary) as totalsalary from employeepayroll group by gender)
+select name,Salary,gender from EmployeePayRoll where salary in (select Max(salary) as totalsalary from employeepayroll group by gender)
+select name,Salary,gender from EmployeePayRoll where salary in (select Min(salary) as totalsalary from employeepayroll group by gender)
+select avg(salary) as Totalsalary, gender from EmployeePayRoll group by gender
+select avg(salary) as Totalsalary from EmployeePayRoll;
 
+select gender,
+count(case when gender='M' then 1 end) as 'Male',
+count(case when gender ='F' then 1 end) as 'Female' ,
+count(*) as 'total'
+FROM EmployeePayRoll group by gender ;
