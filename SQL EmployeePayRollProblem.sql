@@ -20,4 +20,9 @@ select * from EmployeePayRoll where name='Dhoni';
 select * from EmployeePayRoll where id=3 or id=2;
 select * from EmployeePayRoll where StartDate between '2009-02-01' and GetDate();
 select * from EmployeePayRoll where id in (1,2,3);
+----UC 6 adding new column using alter to the existing table-----
+alter table EmployeePayRoll add Gender char (1); 
+update EmployeePayRoll set Gender='M';
+--some more insertions--
+insert into EmployeePayRoll values('kalpana',43535.32,'2012-06-01','F'),('Kaveri',23423.43,'2022-01-20','F');
 
