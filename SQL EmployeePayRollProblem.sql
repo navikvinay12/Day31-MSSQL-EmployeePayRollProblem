@@ -10,6 +10,7 @@ create table EmployeePayRoll
 	Salary float,
 	StartDate date
 );
-select * from EmployeePayRoll;
-
+----UC3 Insert INTO table ------
+insert into EmployeePayRoll values('Ashwin',67192.34,'2009-03-21');		--way1
+insert into EmployeePayRoll (Salary,Name,StartDate) values(46000.23,'Dhoni','2002-03-22');		--way2
 
