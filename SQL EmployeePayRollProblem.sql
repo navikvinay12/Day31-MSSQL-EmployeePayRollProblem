@@ -1,3 +1,4 @@
+--Assignment 1 of Day 31 -MSSQL (PayRoll Service) --
 ----Welcome to MS SQL Demo on PayRoll Service.  -----
 -----UC1 Creating Database-----
 create database PayrollService;
@@ -38,9 +39,19 @@ select name,Salary,gender from EmployeePayRoll where salary in (select Max(salar
 select name,Salary,gender from EmployeePayRoll where salary in (select Min(salary) as totalsalary from employeepayroll group by gender)
 select avg(salary) as Totalsalary, gender from EmployeePayRoll group by gender
 select avg(salary) as Totalsalary from EmployeePayRoll;
-
-select gender,
+--male and female count
+select gender,name,
 count(case when gender='M' then 1 end) as 'Male',
 count(case when gender ='F' then 1 end) as 'Female' ,
 count(*) as 'total'
-FROM EmployeePayRoll group by gender ;
+FROM EmployeePayRoll group by gender,name ;
+
+--UC8 Ability to extend table to store info like empPhone,address and dept--
+select * from EmployeePayRoll
+alter table EmployeePayRoll add empPhone int;
+alter table EmployeePayRoll add Address varchar(255) default 'Mumbai' with values;
+alter table EmployeePayRoll add Department varchar(255); 
+--for droping column--
+alter table EmployeePayRoll drop constraint DF__EmployeeP__Addre__5AEE82B9;
+alter table EmployeePayRoll drop column Address;
+
