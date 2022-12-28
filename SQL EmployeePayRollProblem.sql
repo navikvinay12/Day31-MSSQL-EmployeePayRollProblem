@@ -58,3 +58,8 @@ alter table EmployeePayRoll drop column Address;
 --UC9 Ability to extend table Add Deductions,Taxable Pay,Income Tax,Net Pay .
 alter table EmployeePayRoll add Deductions float,[Taxable Pay] float ,[Income Tax] float,[Net Pay] float;
 
+--UC10 Ability to make Terissa as part of Sales and Marketing Dept.
+insert into EmployeePayRoll values('Terissa', 45000, '2021-03-16', 'F', 786786,'Goa','Sales', 666.66, 1200.91, 14410.92, 44333.34);
+insert into EmployeePayRoll values('Terissa', 45000, '2022-02-15', 'F', 786786,'Goa','Marketing', 666.66, 1200.91, 14410.92, 44333.34);
+
+
