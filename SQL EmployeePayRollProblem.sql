@@ -55,3 +55,6 @@ alter table EmployeePayRoll add Department varchar(255);
 alter table EmployeePayRoll drop constraint DF__EmployeeP__Addre__5AEE82B9;
 alter table EmployeePayRoll drop column Address;
 
+--UC9 Ability to extend table Add Deductions,Taxable Pay,Income Tax,Net Pay .
+alter table EmployeePayRoll add Deductions float,[Taxable Pay] float ,[Income Tax] float,[Net Pay] float;
+
